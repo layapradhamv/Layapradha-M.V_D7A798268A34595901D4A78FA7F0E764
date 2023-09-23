@@ -1,24 +1,21 @@
-#write a program to create objects of both the Batsman amd Bowler classes and call the play() method for each object.object.
+#Implement a function called sort_students that takes a list of student objects as input and sorts the list based on their CGPA (Cumulative Grade Point Average) in descending order. 
+class Student:
+  def __init__(self, name,roll_number, cgpa):
+    self.name=name
+    self.roll_number=roll_number
+    self.cgpa=cgpa
 
-#Define the base class Player.
-class Player:
-  def play(self):
-    print("The player is playing cricket.")
+def sort_students(student_list):
+  Sorted_Students=sorted(student_list,
+                      key=lambda student: student.cgpa,
+                      reverse=True)
+  return Sorted_Students
+students=[Student("Hari", "A123", 9.7),
+         Student("Gokul", "A126", 8.5),
+         Student("Deva", "A125", 9.5),
+         Student("Aravind", "A126", 8.7)]
+Sorted_Students=sort_students(students)
 
-#Define a derived class Batsman:
-class Batsman(Player):
-  def play(self):
-    print("The batsman is batting.")
-
-class Bowler(Player):
-  def play(self):
-    print("The bowler is bowling.")
-
-#create the instances of Batsman and Bowler classes:
-batsman=Batsman()
-bowler=Bowler()
-
-#call the method play() for each object:
-batsman.play()
-bowler.play()
-
+#print the sorted llist of students:
+for student in Sorted_Students:
+  print("Name: {}, Roll Number: {}, CGPA:{}".format(student.name, student.roll_number, student.cgpa))
